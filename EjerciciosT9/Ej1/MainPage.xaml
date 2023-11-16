@@ -5,10 +5,10 @@
 
     <ScrollView>
         <VerticalStackLayout Spacing="25" Padding="30,0" VerticalOptions="Center">
-
+            
             <Slider x:Name="slider" Margin="3" Minimum="0" Maximum="400" Value="0"> </Slider>
             <Label x:Name="label" Text="Texto" BindingContext="{x:Reference Name=slider}" FontSize="{Binding Path=Value}"></Label>
-            <Entry x:Name="entry" Keyboard="Numeric" BindingContext="{x:Reference Name=slider}" Text="{Binding Path=Value}"></Entry>
+            <Entry x:Name="entry" Keyboard="Numeric" BindingContext="{x:Reference Name=slider}" Text="{Binding Path=Value, StringFormat='{0:F0}'}"></Entry>
 
         </VerticalStackLayout>
     </ScrollView>
