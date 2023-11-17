@@ -8,5 +8,4 @@
         <Entry x:Name="entry" Text="{Binding Nombre}"></Entry>
     </VerticalStackLayout>
     
-
 </ContentPage>
