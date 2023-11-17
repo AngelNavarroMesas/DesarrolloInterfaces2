@@ -1,4 +1,4 @@
-﻿namespace Ej2
+﻿namespace Ej3
 {
     public partial class MainPage : ContentPage
     {

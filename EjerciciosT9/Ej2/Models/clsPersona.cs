@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ej1.Models.Entities
+namespace Ej2.Models
 {
     internal class clsPersona : INotifyPropertyChanged
     {
@@ -19,8 +19,8 @@ namespace Ej1.Models.Entities
         #region constructores
         public clsPersona()
         {
-            this.nombre = "Angel";
-            this.apellido = "Navarro";
+            nombre = "Angel";
+            apellido = "Navarro";
         }
 
         public clsPersona(string nombre, string apellido)
@@ -31,7 +31,7 @@ namespace Ej1.Models.Entities
         #endregion
 
         #region propiedades
-        public String Nombre
+        public string Nombre
         {
             get { return nombre; }
             set
@@ -41,7 +41,7 @@ namespace Ej1.Models.Entities
             }
         }
 
-        public String Apellido
+        public string Apellido
         {
             get { return apellido; }
             set
@@ -51,7 +51,7 @@ namespace Ej1.Models.Entities
             }
         }
 
-        public String NombreCompleto
+        public string NombreCompleto
         {
             get { return $"{nombre} {apellido}"; }
         }
