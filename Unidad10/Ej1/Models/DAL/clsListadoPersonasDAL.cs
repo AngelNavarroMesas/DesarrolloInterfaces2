@@ -1,6 +1,6 @@
-﻿using Microsoft.Maui.Controls;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,14 +10,13 @@ namespace Ej1.Models.DAL
 {
     public class clsListadoPersonasDAL
     {
-        public List<clsPersona> listadoPersona()
+        public static ObservableCollection<clsPersona> ListaPersonas()
         {
             /// <summary>
             /// Función que nos devuelve un listado de todas las personas
             /// </summary>
             /// <returns>listaPersonas</returns>
-            List<clsPersona> listaPersonas = new List<clsPersona>()
-        {
+            ObservableCollection<clsPersona> listaPersonas = new ObservableCollection<clsPersona>{
             new clsPersona(1,"Teniente", "Dan","",10),
             new clsPersona(2,"Angel", "Navarro","",9),
             new clsPersona(3,"Fernando", "Galiana","",8),

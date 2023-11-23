@@ -3,6 +3,7 @@ using Ej1.Models.Entities;
 using Ej1.ViewModels.Utilidades;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace Ej1.ViewModels
         #region Atributos
         private DelegateCommand buscarCommand;
         private DelegateCommand eliminarCommand;
-        private List<clsPersona> listaPersonas;
+        private ObservableCollection<clsPersona> listaPersonas;
         private clsPersona personaSeleccionada;
         private String textoBusqueda;
         #endregion Atributos
@@ -22,8 +23,9 @@ namespace Ej1.ViewModels
         #region Constructores
         public MainPageVM()
         {
-            listaPersonas = clsListadoPersonasDAL listadoPersonas;
-            buscarCommand = new DelegateCommand(BuscarCommandExecute, buscarCommandCanExecute)
+            listaPersonas = clsListadoPersonasDAL.ListaPersonas();
+            buscarCommand = new DelegateCommand(buscarCommandExecute, buscarCommandCanExecute);
+            eliminarCommand = new DelegateCommand(eliminarCommandExecute, eliminarCommandCanExecute);
         }
         #endregion
 
@@ -36,7 +38,7 @@ namespace Ej1.ViewModels
         {
             get { return eliminarCommand; }
         }
-        public List<clsPersona> ListadoPersonas
+        public ObservableCollection<clsPersona> ListadoPersonas
         { 
             get { return listaPersonas; }
         }
@@ -58,21 +60,19 @@ namespace Ej1.ViewModels
             return habilitadoEliminar;
         }
 
-        private void eliminarComandoExecute()
+        private void eliminarComandExecute()
         {
             ListadoPersonas.Remove(personaSeleccionada);
             NotifyPropertyChanged("ListaPersonas");
         }
 
-        private void buscarComandoExecute()
+        private void buscarComandExecute()
         {
             bool habilitadoBuscar = false;
             if (String.IsNullOrEmpty(textoBusqueda))
             {
                 habilitadoBuscar = true;
             }
-
-            return buscarComandoExecute;
         }
         #endregion
 
